@@ -19,7 +19,6 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
@@ -49,15 +48,19 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Editorial Brand Logo */}
+            {/* Editorial Brand Logo with User Profile Image */}
             <a
               href="#home"
               className="flex items-center space-x-3 group"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-emerald-500 flex items-center justify-center text-white font-heading font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
-                R
+              <div className="w-9 h-9 rounded-xl overflow-hidden border-2 border-purple-500/50 p-0.5 shadow-md group-hover:scale-105 transition-transform bg-slate-900 shrink-0">
+                <img
+                  src="/profile.png"
+                  alt="Rithanya S"
+                  className="w-full h-full object-cover object-[50%_15%] rounded-lg"
+                />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col text-left">
                 <span className="font-heading font-bold text-sm tracking-wide theme-heading group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                   {personalData.name.toUpperCase()}
                 </span>
@@ -160,4 +163,3 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
 };
 
 export default Navbar;
-

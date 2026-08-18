@@ -265,7 +265,7 @@ export const education = [
     image: null
   },
   {
-    degree: "Higher Secondary Certificate (HSC - Class XII)",
+    degree: "Higher Secondary (HSC - Class XII)",
     institution: "Bharathi Matric Hr. Sec. School",
     location: "Coimbatore, Tamil Nadu",
     period: "2024",
@@ -274,7 +274,7 @@ export const education = [
     image: null
   },
   {
-    degree: "Secondary School Leaving Certificate (SSLC - Class X)",
+    degree: "Secondary School Leaving (SSLC - Class X)",
     institution: "Chavara Vidhya Bhavan Matric. Hr. Sec. School",
     location: "Coimbatore, Tamil Nadu",
     period: "2022",
@@ -377,9 +377,10 @@ export const certifications = [
     title: "Java Programming: A Comprehensive Bootcamp from Zero to Hero",
     issuer: "Infosys Springboard",
     category: "Software Development",
-    date: null,
-    certificateImage: null,
-    credentialUrl: null
+    date: "March 21, 2025",
+    certificateImage: "/assets/certifications/java-bootcamp.png",
+    downloadName: "Rithanya_S_Java_Bootcamp_Certificate.png",
+    credentialUrl: "https://verify.onwingspan.com"
   },
   {
     id: 4,

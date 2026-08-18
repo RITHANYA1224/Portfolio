@@ -15,20 +15,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Editorial Pastel Lavender & Sage Color Tokens */
+/* Editorial Pastel Lavender & Deep Cosmic Dark Tokens */
 .dark-theme {
   color-scheme: dark;
-  --bg-primary: #0b0d14;
-  --bg-secondary: #121522;
-  --bg-card: rgba(18, 22, 34, 0.85);
-  --bg-card-solid: #151928;
-  --bg-card-hover: rgba(28, 34, 52, 0.95);
-  --bg-nav: rgba(11, 13, 20, 0.82);
+  --bg-primary: #070913;
+  --bg-secondary: #0d1122;
+  --bg-card: rgba(15, 19, 34, 0.8);
+  --bg-card-solid: #101528;
+  --bg-card-hover: rgba(22, 28, 48, 0.92);
+  --bg-nav: rgba(7, 9, 19, 0.85);
   --bg-tag: rgba(167, 139, 250, 0.12);
   
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-medium: rgba(255, 255, 255, 0.15);
-  --border-highlight: rgba(167, 139, 250, 0.4);
+  --border-highlight: rgba(167, 139, 250, 0.45);
   
   --text-heading: #f8fafc;
   --text-body: #cbd5e1;
@@ -47,24 +47,24 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   --ice-accent: #7dd3fc;
   
   /* High-Contrast Skill & Tag Badges */
-  --badge-bg: #171c2f;
-  --badge-border: rgba(167, 139, 250, 0.25);
+  --badge-bg: #141a2e;
+  --badge-border: rgba(167, 139, 250, 0.3);
   --badge-text: #f8fafc;
-  --badge-hover-bg: #202742;
-  --badge-hover-border: rgba(167, 139, 250, 0.6);
+  --badge-hover-bg: #1e2642;
+  --badge-hover-border: rgba(167, 139, 250, 0.7);
   --badge-hover-text: #ffffff;
 
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .light-theme {
   color-scheme: light;
-  --bg-primary: #faf8f5;
-  --bg-secondary: #f3efe9;
-  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-primary: #faf9f6;
+  --bg-secondary: #f4efe8;
+  --bg-card: rgba(255, 255, 255, 0.92);
   --bg-card-solid: #ffffff;
-  --bg-card-hover: rgba(248, 245, 240, 1);
-  --bg-nav: rgba(250, 248, 245, 0.88);
+  --bg-card-hover: rgba(250, 247, 242, 1);
+  --bg-nav: rgba(250, 249, 246, 0.9);
   --bg-tag: rgba(124, 93, 219, 0.08);
   
   --border-subtle: rgba(30, 27, 46, 0.08);
@@ -95,11 +95,18 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   --badge-hover-border: rgba(109, 79, 194, 0.5);
   --badge-hover-text: #0f0b1a;
 
-  --shadow-card: 0 10px 25px -5px rgba(30, 27, 46, 0.06), 0 8px 10px -6px rgba(30, 27, 46, 0.04);
+  --shadow-card: 0 14px 30px -8px rgba(30, 27, 46, 0.08), 0 0 0 1px rgba(30, 27, 46, 0.06);
 }
 
 body {
   background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(167, 139, 250, 0.08) 0px, transparent 55%),
+    radial-gradient(at 85% 35%, rgba(16, 185, 129, 0.06) 0px, transparent 50%),
+    radial-gradient(at 40% 75%, rgba(99, 102, 241, 0.07) 0px, transparent 60%),
+    radial-gradient(var(--border-subtle) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+  background-attachment: fixed;
   color: var(--text-heading);
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
@@ -116,8 +123,8 @@ body {
 /* Dynamic Glassmorphism Card System */
 .editorial-card {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
