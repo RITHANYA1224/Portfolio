@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono-tag {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Editorial Pastel Lavender & Sage Color Tokens */
+.dark-theme {
+  color-scheme: dark;
+  --bg-primary: #0b0d14;
+  --bg-secondary: #121522;
+  --bg-card: rgba(18, 22, 34, 0.85);
+  --bg-card-solid: #151928;
+  --bg-card-hover: rgba(28, 34, 52, 0.95);
+  --bg-nav: rgba(11, 13, 20, 0.82);
+  --bg-tag: rgba(167, 139, 250, 0.12);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-highlight: rgba(167, 139, 250, 0.4);
+  
+  --text-heading: #f8fafc;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  
+  --lavender-accent: #a78bfa;
+  --lavender-light: #c4b5fd;
+  --lavender-bg: rgba(167, 139, 250, 0.14);
+  
+  --sage-accent: #8fa89b;
+  --sage-light: #a7c4b5;
+  --sage-bg: rgba(143, 168, 155, 0.14);
+  
+  --plum-accent: #9d8ec7;
+  --ice-accent: #7dd3fc;
+  
+  /* High-Contrast Skill & Tag Badges */
+  --badge-bg: #171c2f;
+  --badge-border: rgba(167, 139, 250, 0.25);
+  --badge-text: #f8fafc;
+  --badge-hover-bg: #202742;
+  --badge-hover-border: rgba(167, 139, 250, 0.6);
+  --badge-hover-text: #ffffff;
+
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme {
+  color-scheme: light;
+  --bg-primary: #faf8f5;
+  --bg-secondary: #f3efe9;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-solid: #ffffff;
+  --bg-card-hover: rgba(248, 245, 240, 1);
+  --bg-nav: rgba(250, 248, 245, 0.88);
+  --bg-tag: rgba(124, 93, 219, 0.08);
+  
+  --border-subtle: rgba(30, 27, 46, 0.08);
+  --border-medium: rgba(30, 27, 46, 0.18);
+  --border-highlight: rgba(124, 93, 219, 0.45);
+  
+  --text-heading: #1e192d;
+  --text-body: #3b334c;
+  --text-muted: #5f5475;
+  --text-subtle: #85789c;
+  
+  --lavender-accent: #6d4fc2;
+  --lavender-light: #5235a6;
+  --lavender-bg: rgba(109, 79, 194, 0.1);
+  
+  --sage-accent: #3d6854;
+  --sage-light: #2c5240;
+  --sage-bg: rgba(61, 104, 84, 0.1);
+  
+  --plum-accent: #5e468d;
+  --ice-accent: #0369a1;
+  
+  /* High-Contrast Skill & Tag Badges */
+  --badge-bg: #ede7dd;
+  --badge-border: rgba(30, 27, 46, 0.15);
+  --badge-text: #1a1429;
+  --badge-hover-bg: #e4dcce;
+  --badge-hover-border: rgba(109, 79, 194, 0.5);
+  --badge-hover-text: #0f0b1a;
+
+  --shadow-card: 0 10px 25px -5px rgba(30, 27, 46, 0.06), 0 8px 10px -6px rgba(30, 27, 46, 0.04);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-heading);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Subtle Background Grid Pattern */
+.bg-editorial-grid {
+  background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dynamic Glassmorphism Card System */
+.editorial-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  border-color: var(--border-highlight);
+  background: var(--bg-card-hover);
+}
+
+/* High Contrast Skill Badge Component */
+.skill-badge {
+  background-color: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--badge-text);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-badge:hover {
+  background-color: var(--badge-hover-bg);
+  border-color: var(--badge-hover-border);
+  color: var(--badge-hover-text);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Gradient Text Effect */
+.editorial-gradient-text {
+  background: linear-gradient(135deg, var(--lavender-accent) 0%, var(--sage-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Typography Utility Helpers */
+.theme-heading { color: var(--text-heading); }
+.theme-body { color: var(--text-body); }
+.theme-muted { color: var(--text-muted); }
+.theme-subtle { color: var(--text-subtle); }
+.theme-border { border-color: var(--border-subtle); }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lavender-accent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
