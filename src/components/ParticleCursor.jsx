@@ -15,7 +15,7 @@ const ParticleCursor = () => {
 
     let animationFrameId;
     let particles = [];
-    const colors = ['#8E55F7', '#D562F2', '#ED7BC9', '#F5EFFB', '#FFFFFF'];
+    const colors = ['#8B5CF6', '#A855F7', '#EC4899', '#F472B6', '#F8FAFC', '#FFFFFF'];
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -29,7 +29,7 @@ const ParticleCursor = () => {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 3 + 1;
+        this.size = Math.random() * 3.5 + 1;
         this.speedX = (Math.random() - 0.5) * 1.2;
         this.speedY = (Math.random() - 0.5) * 1.2 - 0.5;
         this.color = colors[Math.floor(Math.random() * colors.length)];

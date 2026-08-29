@@ -9,18 +9,18 @@ const About = () => {
   const selectedContent = aboutTabs.find((t) => t.id === activeTab) || aboutTabs[0];
 
   return (
-    <section id="about" className="py-24 relative bg-[#191424]/50 dark:bg-[#191424]/50">
+    <section id="about" className="py-24 relative bg-warm-ambient bg-dot-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-12">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1F1B2C] border border-[#3A2E50] text-[#ED7BC9] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
-            <UserCheck size={14} className="text-[#8E55F7]" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#101225] border border-[#1F2442] text-[#EC4899] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
+            <UserCheck size={14} className="text-[#8B5CF6]" />
             <span>01 // PERSPECTIVE & BACKGROUND</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F5EFFB] dark:text-[#F5EFFB] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC] dark:text-[#F8FAFC] tracking-tight">
             About & Technical Focus
           </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] mt-3 rounded-full" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] mt-3 rounded-full" />
         </div>
 
         {/* Editorial Interactive Tab Layout */}
@@ -35,8 +35,8 @@ const About = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between group ${
                     isActive
-                      ? 'bg-[#1F1B2C] border-[#8E55F7] text-[#F5EFFB] font-bold shadow-[0_0_20px_rgba(142,85,247,0.2)]'
-                      : 'bg-[#121018]/60 border-[#3A2E50] text-[#C3B8D4] hover:text-[#F5EFFB] hover:border-[#8E55F7]/50'
+                      ? 'bg-[#101225] border-[#8B5CF6] text-[#F8FAFC] font-bold shadow-[0_0_20px_rgba(139,92,246,0.25)]'
+                      : 'bg-[#070A18]/70 border-[#1F2442] text-[#CBD5E1] hover:text-[#F8FAFC] hover:border-[#8B5CF6]/50'
                   }`}
                 >
                   <span className="font-display font-semibold text-sm">
@@ -45,7 +45,7 @@ const About = () => {
                   <ArrowRight
                     size={16}
                     className={`transition-transform ${
-                      isActive ? 'text-[#ED7BC9] translate-x-1' : 'text-[#8E82A3] group-hover:text-[#8E55F7]'
+                      isActive ? 'text-[#EC4899] translate-x-1' : 'text-[#94A3B8] group-hover:text-[#8B5CF6]'
                     }`}
                   />
                 </button>
@@ -53,18 +53,18 @@ const About = () => {
             })}
 
             {/* Academic Summary Badge Box */}
-            <div className="p-4.5 rounded-2xl bg-[#191424] border border-[#3A2E50] text-xs font-sans text-[#F5EFFB] space-y-2 mt-4">
+            <div className="p-4.5 rounded-2xl bg-[#101225] border border-[#1F2442] text-xs font-sans text-[#F8FAFC] space-y-2 mt-4">
               <div className="flex justify-between items-center">
-                <span className="text-[#8E82A3]">INSTITUTION</span>
-                <span className="font-bold text-[#F5EFFB]">SKCT, Coimbatore</span>
+                <span className="text-[#94A3B8]">INSTITUTION</span>
+                <span className="font-bold text-[#F8FAFC]">SKCT, Coimbatore</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[#8E82A3]">BATCH</span>
-                <span className="font-bold text-[#F5EFFB]">2024–2028</span>
+                <span className="text-[#94A3B8]">BATCH</span>
+                <span className="font-bold text-[#F8FAFC]">2024–2028</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[#8E82A3]">CGPA SCORE</span>
-                <span className="font-extrabold text-[#F5EFFB] bg-[#8E55F7]/20 px-2.5 py-0.5 rounded border border-[#8E55F7]/40">8.18 / 10</span>
+                <span className="text-[#94A3B8]">CGPA SCORE</span>
+                <span className="font-extrabold text-[#F8FAFC] bg-[#8B5CF6]/20 px-2.5 py-0.5 rounded border border-[#8B5CF6]/40">8.18 / 10</span>
               </div>
             </div>
           </div>
@@ -79,35 +79,35 @@ const About = () => {
               className="warm-card p-6 sm:p-10 rounded-3xl space-y-6 relative min-h-[320px] flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <span className="px-3.5 py-1 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7]/40 text-[#ED7BC9] text-xs font-bold uppercase tracking-wider inline-block">
+                <span className="px-3.5 py-1 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 text-[#EC4899] text-xs font-bold uppercase tracking-wider inline-block">
                   {selectedContent.label}
                 </span>
 
-                <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-[#F5EFFB] leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-[#F8FAFC] leading-tight">
                   {selectedContent.heading}
                 </h3>
 
-                <p className="text-[#C3B8D4] text-base sm:text-lg leading-relaxed font-sans font-normal">
+                <p className="text-[#CBD5E1] text-base sm:text-lg leading-relaxed font-sans font-normal">
                   {selectedContent.content}
                 </p>
               </div>
 
               {/* Core Competencies Pills */}
-              <div className="pt-6 border-t border-[#3A2E50] flex flex-wrap gap-2.5 text-xs font-sans">
-                <span className="px-3.5 py-1.5 rounded-xl bg-[#121018] border border-[#3A2E50] text-[#F5EFFB] font-semibold flex items-center space-x-1.5 shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#8E55F7]" />
+              <div className="pt-6 border-t border-[#1F2442] flex flex-wrap gap-2.5 text-xs font-sans">
+                <span className="px-3.5 py-1.5 rounded-xl bg-[#070A18] border border-[#1F2442] text-[#F8FAFC] font-semibold flex items-center space-x-1.5 shadow-xs">
+                  <CheckCircle2 size={14} className="text-[#8B5CF6]" />
                   <span>Java & Spring Boot APIs</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-xl bg-[#121018] border border-[#3A2E50] text-[#F5EFFB] font-semibold flex items-center space-x-1.5 shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#ED7BC9]" />
+                <span className="px-3.5 py-1.5 rounded-xl bg-[#070A18] border border-[#1F2442] text-[#F8FAFC] font-semibold flex items-center space-x-1.5 shadow-xs">
+                  <CheckCircle2 size={14} className="text-[#EC4899]" />
                   <span>React Frontend Engineering</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-xl bg-[#121018] border border-[#3A2E50] text-[#F5EFFB] font-semibold flex items-center space-x-1.5 shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#8E55F7]" />
+                <span className="px-3.5 py-1.5 rounded-xl bg-[#070A18] border border-[#1F2442] text-[#F8FAFC] font-semibold flex items-center space-x-1.5 shadow-xs">
+                  <CheckCircle2 size={14} className="text-[#8B5CF6]" />
                   <span>MySQL Relational Databases</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-xl bg-[#121018] border border-[#3A2E50] text-[#F5EFFB] font-semibold flex items-center space-x-1.5 shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#ED7BC9]" />
+                <span className="px-3.5 py-1.5 rounded-xl bg-[#070A18] border border-[#1F2442] text-[#F8FAFC] font-semibold flex items-center space-x-1.5 shadow-xs">
+                  <CheckCircle2 size={14} className="text-[#EC4899]" />
                   <span>Power BI Analytics</span>
                 </span>
               </div>

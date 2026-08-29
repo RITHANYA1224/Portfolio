@@ -13,21 +13,21 @@ const categoryIcons = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-24 relative bg-warm-ambient bg-dot-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-12">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1F1B2C] border border-[#3A2E50] text-[#ED7BC9] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
-            <Terminal size={14} className="text-[#8E55F7]" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#101225] border border-[#1F2442] text-[#EC4899] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
+            <Terminal size={14} className="text-[#8B5CF6]" />
             <span>02 // TECHNICAL MATRIX</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F5EFFB] dark:text-[#F5EFFB] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC] dark:text-[#F8FAFC] tracking-tight">
             Skills & Technical Competencies
           </h2>
-          <p className="text-[#C3B8D4] text-sm sm:text-base mt-2 font-sans font-normal">
+          <p className="text-[#CBD5E1] text-sm sm:text-base mt-2 font-sans font-normal">
             Structured inventory of programming languages, web & backend frameworks, database tools, and professional soft skills.
           </p>
-          <div className="w-12 h-1 bg-gradient-to-r from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] mt-3 rounded-full" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] mt-3 rounded-full" />
         </div>
 
         {/* Skill Matrix Grid */}
@@ -43,28 +43,28 @@ const Skills = () => {
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className="warm-card p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm"
               >
-                <div className="flex items-center justify-between border-b border-[#3A2E50] pb-4">
+                <div className="flex items-center justify-between border-b border-[#1F2442] pb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2.5 rounded-xl bg-[#8E55F7]/15 border border-[#8E55F7]/30 text-[#ED7BC9]">
+                    <div className="p-2.5 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#EC4899]">
                       <IconComp size={18} />
                     </div>
-                    <h3 className="text-base sm:text-lg font-display font-bold text-[#F5EFFB] tracking-wide">
+                    <h3 className="text-base sm:text-lg font-display font-bold text-[#F8FAFC] tracking-wide">
                       {cat.category}
                     </h3>
                   </div>
-                  <span className="text-xs font-mono text-[#8E82A3] font-bold">
+                  <span className="text-xs font-mono text-[#94A3B8] font-bold">
                     0{idx + 1}
                   </span>
                 </div>
 
-                {/* Highly Readable Skill Badges */}
+                {/* Skill Badges */}
                 <div className="flex flex-wrap gap-2.5">
                   {cat.skills.map((skill, sIdx) => (
                     <div
                       key={skill}
-                      className="px-3.5 py-2 rounded-xl bg-[#121018] border border-[#3A2E50] hover:border-[#8E55F7] text-[#F5EFFB] text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center space-x-2 shadow-xs hover:shadow-[0_0_12px_rgba(142,85,247,0.2)]"
+                      className="px-3.5 py-2 rounded-xl bg-[#070A18] border border-[#1F2442] hover:border-[#8B5CF6] text-[#F8FAFC] text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center space-x-2 shadow-xs hover:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
                     >
-                      <span className={`w-2 h-2 rounded-full ${sIdx % 2 === 0 ? 'bg-[#8E55F7]' : 'bg-[#ED7BC9]'}`} />
+                      <span className={`w-2 h-2 rounded-full ${sIdx % 2 === 0 ? 'bg-[#8B5CF6]' : 'bg-[#EC4899]'}`} />
                       <span>{skill}</span>
                     </div>
                   ))}

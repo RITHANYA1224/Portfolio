@@ -8,25 +8,25 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#121018]/80 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#070A18]/85 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="relative w-full max-w-4xl h-[88vh] rounded-3xl bg-[#191424] border border-[#3A2E50] flex flex-col overflow-hidden shadow-2xl text-[#F5EFFB]"
+          className="relative w-full max-w-4xl h-[88vh] rounded-3xl bg-[#101225] border border-[#1F2442] flex flex-col overflow-hidden shadow-2xl text-[#F8FAFC]"
         >
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-[#3A2E50] flex items-center justify-between">
+          <div className="p-4 sm:p-5 border-b border-[#1F2442] flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2.5 rounded-xl bg-[#8E55F7]/20 border border-[#8E55F7]/40 text-[#ED7BC9]">
+              <div className="p-2.5 rounded-xl bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 text-[#EC4899]">
                 <FileText size={20} />
               </div>
               <div>
-                <h3 className="text-base sm:text-lg font-display font-bold text-[#F5EFFB]">
+                <h3 className="text-base sm:text-lg font-display font-bold text-[#F8FAFC]">
                   {personalData.name} — Curriculum Vitae
                 </h3>
-                <p className="text-xs text-[#8E82A3] font-sans font-semibold">
+                <p className="text-xs text-[#94A3B8] font-sans font-semibold">
                   B.Tech Information Technology • {personalData.college}
                 </p>
               </div>
@@ -37,7 +37,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                 href={personalData.resumePath}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 sm:px-3 sm:py-2 rounded-full bg-[#121018] text-[#F5EFFB] border border-[#3A2E50] text-xs font-bold flex items-center space-x-1.5 hover:border-[#8E55F7] transition-colors"
+                className="p-2 sm:px-3 sm:py-2 rounded-full bg-[#070A18] text-[#F8FAFC] border border-[#1F2442] text-xs font-bold flex items-center space-x-1.5 hover:border-[#8B5CF6] transition-colors"
                 title="Open resume in full tab"
               >
                 <ExternalLink size={15} />
@@ -55,7 +55,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
               <button
                 onClick={onClose}
-                className="p-2 rounded-full bg-[#121018] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#ED7BC9] transition-colors"
+                className="p-2 rounded-full bg-[#070A18] text-[#F8FAFC] border border-[#1F2442] hover:border-[#EC4899] transition-colors"
                 aria-label="Close modal"
               >
                 <X size={18} />
@@ -68,7 +68,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
             <iframe
               src={personalData.resumePath}
               title="Resume Preview"
-              className="w-full h-full rounded-2xl border border-[#3A2E50] shadow-inner"
+              className="w-full h-full rounded-2xl border border-[#1F2442] shadow-inner"
             />
           </div>
         </motion.div>

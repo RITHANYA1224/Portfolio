@@ -8,21 +8,21 @@ const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
 
   return (
-    <section id="certifications" className="py-24 relative bg-[#191424]/40 dark:bg-[#191424]/40">
+    <section id="certifications" className="py-24 relative bg-warm-ambient bg-dot-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-16">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1F1B2C] border border-[#3A2E50] text-[#ED7BC9] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
-            <Award size={14} className="text-[#8E55F7]" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#101225] border border-[#1F2442] text-[#EC4899] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
+            <Award size={14} className="text-[#8B5CF6]" />
             <span>07 // VERIFIED CREDENTIALS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F5EFFB] dark:text-[#F5EFFB] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC] dark:text-[#F8FAFC] tracking-tight">
             Certifications Gallery
           </h2>
-          <p className="text-[#C3B8D4] text-sm sm:text-base mt-2 font-sans font-normal">
+          <p className="text-[#CBD5E1] text-sm sm:text-base mt-2 font-sans font-normal">
             Verified course credentials from AWS, IBM, Google, Infosys Springboard, University of Alberta, and NPTEL.
           </p>
-          <div className="w-12 h-1 bg-gradient-to-r from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] mt-3 rounded-full" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] mt-3 rounded-full" />
         </div>
 
         {/* Gallery Grid */}
@@ -38,27 +38,27 @@ const Certifications = () => {
               className="warm-card p-6 rounded-3xl flex flex-col justify-between cursor-pointer group shadow-sm"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#3A2E50] pb-3">
-                  <span className="px-3 py-0.5 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7]/40 text-[#ED7BC9] text-xs font-bold">
+                <div className="flex items-center justify-between border-b border-[#1F2442] pb-3">
+                  <span className="px-3 py-0.5 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 text-[#EC4899] text-xs font-bold">
                     {cert.category}
                   </span>
-                  <span className="text-xs font-mono text-[#8E82A3] font-bold">
+                  <span className="text-xs font-mono text-[#94A3B8] font-bold">
                     {cert.date}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-display font-bold text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors leading-snug">
+                  <h3 className="text-lg font-display font-bold text-[#F8FAFC] group-hover:text-[#EC4899] transition-colors leading-snug">
                     {cert.title}
                   </h3>
-                  <div className="text-xs font-sans font-bold text-[#C3B8D4] mt-2">
+                  <div className="text-xs font-sans font-bold text-[#CBD5E1] mt-2">
                     {cert.issuer}
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 mt-6 border-t border-[#3A2E50] flex items-center justify-between">
-                <span className="text-xs font-sans font-bold text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors flex items-center space-x-1">
+              <div className="pt-4 mt-6 border-t border-[#1F2442] flex items-center justify-between">
+                <span className="text-xs font-sans font-bold text-[#F8FAFC] group-hover:text-[#EC4899] transition-colors flex items-center space-x-1">
                   <span>View Certificate</span>
                   <ArrowUpRight size={14} />
                 </span>
