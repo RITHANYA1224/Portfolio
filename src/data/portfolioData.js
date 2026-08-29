@@ -46,8 +46,8 @@ export const aboutTabs = [
   {
     id: "discipline",
     label: "Coding Discipline",
-    heading: "160+ Day Problem-Solving Streak on LeetCode",
-    content: "Maintaining a continuous 160+ day coding streak on LeetCode, consistently practicing Java programming and logical problem solving."
+    heading: "175+ Day Problem-Solving Streak on LeetCode",
+    content: "Maintaining a continuous 175+ day coding streak on LeetCode, consistently practicing Java programming and logical problem solving."
   }
 ];
 
@@ -358,11 +358,11 @@ export const achievements = {
     }
   ],
   leetcodeStreak: {
-    title: "160+ Day Coding Streak",
+    title: "175+ Day Coding Streak",
     platform: "LeetCode",
-    metric: "160+ Days",
+    metric: "175+ Days",
     profileUrl: socialLinks.leetcode,
-    desc: "Maintaining a 160+ day coding streak on LeetCode, consistently practicing Java programming."
+    desc: "Maintaining a 175+ day coding streak on LeetCode, consistently practicing Java programming."
   }
 };
 
@@ -497,7 +497,7 @@ export const beyondCode = [
   {
     title: "Problem Solving",
     subtitle: "Logical & systematic approach",
-    desc: "Demonstrated through continuous LeetCode problem solving (160+ day streak in Java) and designing robust backend system workflows.",
+    desc: "Demonstrated through continuous LeetCode problem solving (175+ day streak in Java) and designing robust backend system workflows.",
     iconName: "Sparkles"
   },
   {
