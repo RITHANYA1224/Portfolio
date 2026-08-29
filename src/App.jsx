@@ -12,15 +12,17 @@ import ResumeSection from './components/ResumeSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import ParticleCursor from './components/ParticleCursor';
 
 function App() {
+  // Default to Dark Mode as requested by reference design
   const [darkMode, setDarkMode] = useState(true);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
-      document.body.className = 'dark-theme';
+      document.body.className = 'dark-theme dark';
     } else {
       document.documentElement.classList.remove('dark');
       document.body.className = 'light-theme';
@@ -28,7 +30,10 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen relative font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen relative font-sans selection:bg-[#8E55F7] selection:text-white transition-colors duration-300">
+      {/* Interactive Lavender Sparkle Particle Cursor */}
+      <ParticleCursor />
+
       {/* Navigation Header */}
       <Navbar
         darkMode={darkMode}

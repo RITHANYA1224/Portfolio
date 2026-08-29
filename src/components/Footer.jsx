@@ -9,51 +9,51 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t theme-border py-12 relative bg-editorial-grid">
+    <footer className="bg-[#121018] border-t border-[#3A2E50] py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left space-y-1">
-            <h4 className="text-base font-bold font-heading tracking-wide theme-heading">
-              {personalData.name.toUpperCase()}
+            <h4 className="text-[#F5EFFB] text-base font-display font-bold tracking-tight">
+              {personalData.name}
             </h4>
-            <p className="text-xs theme-muted font-mono-tag">
+            <p className="text-xs text-[#8E82A3] font-sans font-semibold">
               B.Tech Information Technology • {personalData.college}
             </p>
-            <p className="text-[11px] theme-subtle font-mono-tag">
+            <p className="text-[11px] text-[#8E82A3] font-sans font-semibold">
               Coimbatore, Tamil Nadu • 2024–2028
             </p>
           </div>
 
-          <div className="flex items-center space-x-6 theme-muted font-mono-tag text-xs font-semibold">
-            <a
-              href={personalData.github}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-purple-600 dark:hover:text-purple-300 transition-colors flex items-center space-x-1.5"
-            >
-              <GithubIcon size={14} />
-              <span>GITHUB</span>
-            </a>
+          <div className="flex items-center space-x-6 text-[#F5EFFB] font-sans text-xs">
             <a
               href={personalData.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-purple-600 dark:hover:text-purple-300 transition-colors flex items-center space-x-1.5"
+              className="hover:text-[#ED7BC9] transition-colors flex items-center space-x-1.5 font-semibold"
             >
               <LinkedinIcon size={14} />
-              <span>LINKEDIN</span>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={personalData.github}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#8E55F7] transition-colors flex items-center space-x-1.5 font-semibold"
+            >
+              <GithubIcon size={14} />
+              <span>GitHub</span>
             </a>
             <a
               href={`mailto:${personalData.email}`}
-              className="hover:text-purple-600 dark:hover:text-purple-300 transition-colors"
+              className="hover:text-[#ED7BC9] transition-colors font-semibold"
             >
-              EMAIL
+              Email
             </a>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-2xl editorial-card theme-heading hover:scale-105 transition-all"
+            className="p-3 rounded-full bg-[#191424] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#ED7BC9] transition-all hover:scale-105 shadow-xs"
             aria-label="Back to top"
             title="Back to Top"
           >
@@ -61,8 +61,8 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className="mt-8 pt-6 border-t theme-border text-center font-mono-tag text-[11px] theme-subtle font-semibold">
-          © {new Date().getFullYear()} {personalData.name}. Original Personal Portfolio System.
+        <div className="mt-8 pt-6 border-t border-[#3A2E50]/60 text-center font-sans text-[11px] text-[#8E82A3] font-semibold">
+          © {new Date().getFullYear()} {personalData.name}. All Rights Reserved. Lavender & Violet Personal Brand System.
         </div>
       </div>
     </footer>
@@ -70,4 +70,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

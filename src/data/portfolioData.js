@@ -194,11 +194,6 @@ export const experience = [
         caption: "Conducting data analysis, exploratory scripting, and interactive dashboards at workstation (Ram Nagar, Coimbatore)"
       },
       {
-        url: "/assets/internship/02-appin-technology-lab.jpg",
-        title: "Appin Technology Lab",
-        caption: "Internship training, data engineering modules, and analytics project workspace at Appin Technology Lab"
-      },
-      {
         url: "/assets/internship/03-team-collaboration-session.jpg",
         title: "Team Collaboration Session",
         caption: "Collaborative dataset review, data preprocessing sprint, and dashboard requirements session"
@@ -295,9 +290,21 @@ export const achievements = {
       tag: "Department Showcase",
       desc: "Showcasing our full-stack application architecture and backend systems to mentors, demonstrating robust system designs, API workflows, and database integration.",
       images: [
-        "/assets/achievements/app-web-showcase-certificate.png",
-        "/assets/achievements/app-web-showcase-1.png",
-        "/assets/achievements/app-web-showcase-2.jpg"
+        {
+          url: "/assets/achievements/app-web-showcase-certificate.png",
+          label: "01 — Certificate of Appreciation",
+          caption: "App & Web Showcase Certificate of Appreciation (Sri Krishna College of Technology IT Department)"
+        },
+        {
+          url: "/assets/achievements/app-web-showcase-1.png",
+          label: "02 — Team Presentation",
+          caption: "Presenting full-stack web architecture & Spring Boot backend systems to IT faculty mentors"
+        },
+        {
+          url: "/assets/achievements/app-web-showcase-2.jpg",
+          label: "03 — Live Demo Sprint",
+          caption: "Live demonstration of database workflows and frontend API integration during department showcase"
+        }
       ]
     },
     {
@@ -310,8 +317,16 @@ export const achievements = {
       tag: "Institutional Hackathon",
       desc: "Participated as Team BYTE FYRE in DevHack 2026 at Sri Krishna College of Technology, collaborating to engineer full-stack solutions and present system architectures to judges under intensive sprint deadlines.",
       images: [
-        "/assets/hackathons/devhack-skct-1.jpg",
-        "/assets/hackathons/devhack-skct-2.jpg"
+        {
+          url: "/assets/hackathons/devhack-skct-1.jpg",
+          label: "01 — Team Collaboration",
+          caption: "Team BYTE FYRE collaborating on software architecture sprint during DevHack 2026"
+        },
+        {
+          url: "/assets/hackathons/devhack-skct-2.jpg",
+          label: "02 — Project Demo",
+          caption: "Demonstrating system prototype to hackathon evaluators at SKCT"
+        }
       ]
     },
     {

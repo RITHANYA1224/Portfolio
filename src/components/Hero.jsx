@@ -1,241 +1,157 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, MapPin, GraduationCap, Award, Terminal, Cpu, FileText, Code2, Sparkles, Database, Layers } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, LeetcodeIcon } from './Icons';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowDown, Download, MapPin, GraduationCap, Award, ExternalLink } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalData } from '../data/portfolioData';
 
-const roles = [
-  { text: "Software Engineer", icon: Code2, color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/10 border-purple-500/30" },
-  { text: "Data Analyst", icon: Database, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/30" },
-  { text: "Full Stack Developer", icon: Layers, color: "text-sky-600 dark:text-sky-400", bg: "bg-sky-500/10 border-sky-500/30" },
-  { text: "Java & Backend Developer", icon: Terminal, color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-500/10 border-indigo-500/30" },
-  { text: "Problem Solver", icon: Sparkles, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/10 border-amber-500/30" }
-];
-
 const Hero = ({ onOpenResume }) => {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, []);
-
-  const activeRole = roles[currentRoleIndex];
-  const IconComponent = activeRole.icon;
-
   return (
-    <section id="home" className="relative min-h-screen pt-36 pb-20 flex items-center justify-center overflow-hidden bg-editorial-grid">
-      {/* Soft Pastel Background Accent Glows */}
-      <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[420px] h-[420px] bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-[140px] pointer-events-none" />
+    <section id="home" className="relative min-h-screen pt-36 pb-24 flex items-center justify-center bg-warm-ambient bg-dot-pattern overflow-hidden">
+      {/* Background Orbital Wave SVG Decorative Accent */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100,200 C300,50 800,450 1400,200" stroke="url(#purplePinkGrad)" strokeWidth="1.5" fill="none" />
+        <path d="M-100,500 C400,300 700,700 1500,400" stroke="url(#purplePinkGrad)" strokeWidth="1" strokeDasharray="6,6" fill="none" />
+        <defs>
+          <linearGradient id="purplePinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8E55F7" />
+            <stop offset="50%" stopColor="#D562F2" />
+            <stop offset="100%" stopColor="#ED7BC9" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        {/* Composition Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Asymmetric Editorial Content */}
+          
+          {/* Left Column: Editorial Headline & Bio */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-8 text-left"
           >
-            {/* Profile Avatar Photo (Super Prominent Circular Hero Showcase) */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-7 pt-2">
-              <div className="relative group shrink-0">
-                {/* Ambient Glow Aura */}
-                <div className="absolute -inset-5 rounded-full bg-gradient-to-tr from-purple-600/35 via-indigo-500/30 to-emerald-500/35 blur-2xl opacity-90 group-hover:opacity-100 transition duration-500 pointer-events-none" />
-                
-                {/* Super Large Circular Profile Frame */}
-                <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full p-2.5 bg-gradient-to-tr from-purple-600 via-indigo-400 to-emerald-400 shadow-2xl shadow-purple-950/50 transition-transform duration-300 group-hover:scale-[1.02]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-white dark:border-slate-900 shadow-inner">
-                    <img
-                      src="/profile.png"
-                      alt="Rithanya S"
-                      className="w-full h-full object-cover object-[50%_12%]"
-                    />
-                  </div>
-                </div>
+            {/* Metadata Pill Strip */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="px-4 py-1.5 rounded-full bg-[#1F1B2C]/80 border border-[#3A2E50] text-[#F5EFFB] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+                <MapPin size={13} className="text-[#ED7BC9]" />
+                <span>{personalData.location}</span>
+              </span>
 
-                {/* Active Status Badge */}
-                <span className="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/95 border border-emerald-500 text-emerald-700 dark:text-emerald-400 font-mono-tag text-xs font-bold flex items-center space-x-1.5 shadow-xl backdrop-blur-md">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Available</span>
-                </span>
-              </div>
+              <span className="px-4 py-1.5 rounded-full bg-[#1F1B2C]/80 border border-[#3A2E50] text-[#F5EFFB] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+                <GraduationCap size={13} className="text-[#8E55F7]" />
+                <span>B.Tech IT • {personalData.academicPeriod}</span>
+              </span>
 
-              {/* Metadata Badges Strip & Quick Socials */}
-              <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="px-3.5 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-mono-tag text-xs font-semibold uppercase tracking-widest flex items-center space-x-1.5 shadow-sm">
-                    <MapPin size={14} className="text-purple-600 dark:text-purple-400" />
-                    <span>Coimbatore, India</span>
-                  </span>
-                  <span className="px-3.5 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-800 dark:text-emerald-300 font-mono-tag text-xs font-semibold uppercase tracking-widest flex items-center space-x-1.5 shadow-sm">
-                    <GraduationCap size={14} className="text-emerald-700 dark:text-emerald-400" />
-                    <span>B.Tech IT • 2024–2028</span>
-                  </span>
-                  <span className="px-3.5 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-800 dark:text-amber-300 font-mono-tag text-xs font-semibold uppercase tracking-widest flex items-center space-x-1.5 shadow-sm">
-                    <Award size={14} className="text-amber-600 dark:text-amber-400" />
-                    <span>CGPA 8.18 / 10</span>
-                  </span>
-                </div>
-
-                {/* Direct Social & Platform Links */}
-                <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                  <a
-                    href={personalData.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-700 dark:text-purple-300 font-mono-tag text-xs font-semibold transition-all hover:scale-105"
-                  >
-                    <LinkedinIcon size={14} />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href={personalData.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 theme-heading font-mono-tag text-xs font-semibold transition-all hover:scale-105"
-                  >
-                    <GithubIcon size={14} />
-                    <span>GitHub</span>
-                  </a>
-                  <a
-                    href={personalData.leetcode}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-800 dark:text-amber-300 font-mono-tag text-xs font-semibold transition-all hover:scale-105"
-                  >
-                    <LeetcodeIcon size={14} className="text-amber-600 dark:text-amber-400" />
-                    <span>LeetCode</span>
-                  </a>
-                </div>
-              </div>
+              <span className="px-4 py-1.5 rounded-full bg-[#1F1B2C]/80 border border-[#3A2E50] text-[#F5EFFB] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+                <Award size={13} className="text-[#ED7BC9]" />
+                <span>CGPA {personalData.cgpa}</span>
+              </span>
             </div>
 
-            {/* Creative Dynamic Role Rotator Strip */}
-            <div className="space-y-3 pt-2">
-              <div className="flex items-center">
-                {/* Smooth Animated Role Pill */}
-                <div className="h-9 relative min-w-[240px] flex items-center">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentRoleIndex}
-                      initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -12, scale: 0.95 }}
-                      transition={{ duration: 0.35, ease: "easeOut" }}
-                      className={`inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border shadow-sm backdrop-blur-md ${activeRole.bg}`}
-                    >
-                      <IconComponent size={15} className={activeRole.color} />
-                      <span className={`text-xs sm:text-sm font-extrabold font-mono-tag tracking-wider uppercase ${activeRole.color}`}>
-                        {activeRole.text}
-                      </span>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] font-heading theme-heading">
-                RITHANYA S
+            {/* Display Typography */}
+            <div className="space-y-3">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.08] text-gradient-purple-pink">
+                {personalData.name}
               </h1>
-              
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                {roles.map((r, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentRoleIndex(i)}
-                    className={`px-3 py-1 rounded-lg text-[11px] font-mono-tag font-semibold transition-all duration-300 ${
-                      i === currentRoleIndex
-                        ? 'bg-purple-600 text-white shadow-md scale-105'
-                        : 'bg-slate-100 dark:bg-slate-900/60 theme-muted hover:text-purple-600 dark:hover:text-purple-300 border border-slate-200 dark:border-slate-800'
-                    }`}
-                  >
-                    {r.text}
-                  </button>
-                ))}
+              <p className="text-xl sm:text-2xl font-display italic text-[#C3B8D4]">
+                B.Tech Information Technology Student
+              </p>
+              <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#ED7BC9]">
+                {personalData.college}
               </div>
             </div>
 
-            {/* Tagline Statement */}
-            <p className="theme-body text-sm sm:text-base max-w-xl leading-relaxed font-sans border-l-3 border-purple-500/60 pl-4 py-1">
+            {/* Editorial Statement */}
+            <p className="text-[#F5EFFB] text-base sm:text-lg leading-relaxed font-sans max-w-xl border-l-3 border-[#8E55F7] pl-4 py-1 font-normal opacity-90">
               "{personalData.tagline}"
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#projects"
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm shadow-md shadow-purple-900/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                <span>Explore My Work</span>
-                <ArrowDown size={16} />
-              </a>
+            {/* Action Buttons & Social Links */}
+            <div className="space-y-6 pt-2">
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="#projects"
+                  className="flex items-center space-x-2 px-7 py-3.5 rounded-full btn-gradient-primary font-sans font-bold text-sm"
+                >
+                  <span>Explore My Work</span>
+                  <ArrowDown size={16} />
+                </a>
 
-              <button
-                onClick={onOpenResume}
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl editorial-card theme-heading font-medium text-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                <FileText size={16} className="text-purple-600 dark:text-purple-400" />
-                <span>View Resume</span>
-              </button>
+                <a
+                  href={personalData.resumePath}
+                  download="Rithanya_S_Resume.pdf"
+                  className="flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#121018]/80 text-[#F5EFFB] border border-[#563A80] hover:border-[#ED7BC9] font-sans font-semibold text-sm transition-all backdrop-blur-md hover:shadow-[0_0_20px_rgba(237,123,201,0.2)]"
+                >
+                  <Download size={16} className="text-[#ED7BC9]" />
+                  <span>Download Resume</span>
+                </a>
+              </div>
+
+              {/* Social Link Badges */}
+              <div className="flex items-center space-x-4 pt-2 border-t border-[#3A2E50]/60">
+                <span className="text-xs font-bold text-[#8E82A3] uppercase tracking-wider">Connect:</span>
+                <a
+                  href={personalData.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-full bg-[#1F1B2C] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#ED7BC9] transition-all hover:scale-105"
+                  aria-label="LinkedIn Profile"
+                >
+                  <LinkedinIcon size={18} />
+                </a>
+                <a
+                  href={personalData.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-full bg-[#1F1B2C] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#ED7BC9] transition-all hover:scale-105"
+                  aria-label="GitHub Profile"
+                >
+                  <GithubIcon size={18} />
+                </a>
+                <a
+                  href={personalData.leetcode}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 rounded-full bg-[#1F1B2C] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#8E55F7] text-xs font-semibold flex items-center space-x-1.5 transition-all"
+                >
+                  <span>LeetCode (160+ Days)</span>
+                  <ExternalLink size={12} className="text-[#ED7BC9]" />
+                </a>
+              </div>
             </div>
-
           </motion.div>
 
-          {/* Right Column: Interactive Tech Constellation Card */}
+          {/* Right Column: Circular Profile Photo with Glowing Orbital Rings & Particles */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 flex justify-center relative"
           >
-            <div className="editorial-card p-6 sm:p-8 rounded-3xl space-y-6 shadow-xl relative">
-              <div className="flex items-center justify-between border-b theme-border pb-4">
-                <span className="text-xs font-mono-tag uppercase tracking-wider text-purple-600 dark:text-purple-300 font-bold flex items-center space-x-2">
-                  <Terminal size={15} />
-                  <span>Technical Brand Matrix</span>
-                </span>
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              </div>
+            <div className="relative group">
+              {/* Glowing Outer Lavender/Pink Halo */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] opacity-60 blur-xl group-hover:opacity-90 transition-opacity duration-500 animate-pulse" />
 
-              {/* Data Grid Matrix */}
-              <div className="grid grid-cols-2 gap-3 text-xs font-mono-tag">
-                <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                  <div className="theme-muted text-[10px] uppercase font-semibold">Primary Core</div>
-                  <div className="text-purple-700 dark:text-purple-300 font-bold mt-1">Java & SQL</div>
-                </div>
+              {/* Orbital Ring 1 with Glowing Node Dots */}
+              <div className="absolute -inset-6 rounded-full border border-[#ED7BC9]/40 border-dashed animate-[spin_25s_linear_infinite]" />
+              
+              {/* Orbital Node Dots */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_12px_#ED7BC9]" />
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#8E55F7] shadow-[0_0_10px_#8E55F7]" />
 
-                <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                  <div className="theme-muted text-[10px] uppercase font-semibold">Backend</div>
-                  <div className="text-emerald-700 dark:text-emerald-300 font-bold mt-1">Spring Boot</div>
+              {/* Circular Photo Container */}
+              <div className="relative rounded-full bg-[#121018] p-3 border-2 border-[#8E55F7] shadow-[0_0_40px_rgba(142,85,247,0.4)]">
+                <div className="overflow-hidden rounded-full w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 relative shadow-inner">
+                  <img
+                    src={personalData.profileImage}
+                    alt={personalData.name}
+                    className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-
-                <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                  <div className="theme-muted text-[10px] uppercase font-semibold">Frontend</div>
-                  <div className="text-sky-700 dark:text-sky-300 font-bold mt-1">React & Tailwind</div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                  <div className="theme-muted text-[10px] uppercase font-semibold">Analytics</div>
-                  <div className="text-amber-700 dark:text-amber-300 font-bold mt-1">Python & Power BI</div>
-                </div>
-              </div>
-
-              {/* Specialization Architecture Note */}
-              <div className="p-4 rounded-2xl bg-purple-500/10 dark:bg-purple-500/5 border border-purple-500/20 text-xs theme-body space-y-2">
-                <div className="flex items-center justify-between font-mono-tag text-purple-700 dark:text-purple-300 font-semibold">
-                  <span>PLACEMENT TARGET</span>
-                  <Cpu size={15} />
-                </div>
-                <p className="leading-relaxed theme-muted">
-                  Engineering robust web applications, REST APIs, and analytics dashboards with clean Object-Oriented design and high reliability.
-                </p>
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

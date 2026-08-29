@@ -2,28 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Achievements', href: '#achievements' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'Contact', href: '#contact' },
-];
-
 const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
       const sections = navLinks.map((l) => l.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 180;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -41,47 +41,43 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
     <header className="fixed top-0 left-0 right-0 z-50 pt-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div
-          className={`mx-auto rounded-2xl transition-all duration-300 ${
+          className={`mx-auto rounded-full transition-all duration-300 ${
             scrolled
-              ? 'editorial-card py-3 px-5 border shadow-lg'
-              : 'bg-transparent py-4 px-2'
+              ? 'bg-[#191424]/90 dark:bg-[#191424]/90 backdrop-blur-md border border-[#3A2E50] dark:border-[#3A2E50] shadow-lg py-2.5 px-6'
+              : 'bg-[#191424]/60 dark:bg-[#191424]/60 backdrop-blur-sm border border-[#3A2E50]/60 py-3 px-6'
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Editorial Brand Logo with User Profile Image */}
+            {/* Editorial Brand Name */}
             <a
               href="#home"
               className="flex items-center space-x-3 group"
             >
-              <div className="w-9 h-9 rounded-xl overflow-hidden border-2 border-purple-500/50 p-0.5 shadow-md group-hover:scale-105 transition-transform bg-slate-900 shrink-0">
-                <img
-                  src="/profile.png"
-                  alt="Rithanya S"
-                  className="w-full h-full object-cover object-[50%_15%] rounded-lg"
-                />
+              <div className="w-9 h-9 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7] flex items-center justify-center text-[#F5EFFB] dark:text-[#F5EFFB] font-display font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                R
               </div>
-              <div className="flex flex-col text-left">
-                <span className="font-heading font-bold text-sm tracking-wide theme-heading group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
-                  {personalData.name.toUpperCase()}
+              <div className="flex flex-col">
+                <span className="font-display font-extrabold text-base tracking-tight text-[#F5EFFB] dark:text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors">
+                  {personalData.name}
                 </span>
-                <span className="text-[10px] font-mono-tag theme-muted uppercase tracking-widest">
+                <span className="text-[10px] font-sans text-[#C3B8D4] dark:text-[#C3B8D4] tracking-wide font-medium">
                   B.Tech IT • SKCT
                 </span>
               </div>
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-1 border rounded-full px-3 py-1.5 backdrop-blur-md bg-white/50 dark:bg-slate-900/40 border-slate-200/80 dark:border-slate-800/60">
+            <nav className="hidden lg:flex items-center space-x-1 bg-[#121018]/80 dark:bg-[#121018]/80 border border-[#3A2E50] rounded-full px-3 py-1.5 backdrop-blur-md">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                    className={`px-3.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
                       isActive
-                        ? 'bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30 font-semibold'
-                        : 'theme-muted hover:theme-heading hover:bg-slate-200/60 dark:hover:bg-slate-800/50'
+                        ? 'bg-gradient-to-r from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] text-white shadow-md font-bold'
+                        : 'text-[#C3B8D4] hover:text-[#F5EFFB] hover:bg-[#8E55F7]/15'
                     }`}
                   >
                     {link.name}
@@ -90,25 +86,25 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
               })}
             </nav>
 
-            {/* Right Side Action Buttons */}
+            {/* Action Buttons */}
             <div className="hidden sm:flex items-center space-x-3">
-              {/* Theme Toggle */}
+              {/* Theme Switcher Toggle */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2.5 rounded-xl border transition-all duration-200 bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:scale-105"
+                className="p-2 rounded-full text-[#F5EFFB] bg-[#121018] border border-[#3A2E50] hover:border-[#8E55F7] transition-colors"
                 aria-label="Toggle Theme"
                 title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {darkMode ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-purple-600" />}
+                {darkMode ? <Sun size={16} className="text-[#ED7BC9]" /> : <Moon size={16} className="text-[#8E55F7]" />}
               </button>
 
-              {/* Resume CTA */}
+              {/* Resume Button */}
               <button
                 onClick={onOpenResume}
-                className="flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-purple-600 text-white dark:bg-purple-500/20 dark:text-purple-200 border border-purple-600 dark:border-purple-500/40 text-xs font-semibold hover:bg-purple-700 dark:hover:border-purple-400 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
+                className="flex items-center space-x-1.5 px-4 py-2 rounded-full bg-[#121018] border border-[#563A80] hover:border-[#ED7BC9] text-[#F5EFFB] font-sans font-semibold text-xs transition-all shadow-sm group hover:shadow-[0_0_15px_rgba(237,123,201,0.3)]"
               >
                 <span>Resume</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
 
@@ -116,15 +112,15 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
             <div className="flex lg:hidden items-center space-x-2">
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg theme-heading hover:bg-slate-200 dark:hover:bg-slate-800"
+                className="p-2 rounded-lg text-[#F5EFFB]"
                 aria-label="Toggle Theme"
               >
-                {darkMode ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-purple-600" />}
+                {darkMode ? <Sun size={18} className="text-[#ED7BC9]" /> : <Moon size={18} className="text-[#8E55F7]" />}
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg theme-heading"
-                aria-label="Toggle Navigation Menu"
+                className="p-2 rounded-lg text-[#F5EFFB]"
+                aria-label="Toggle Menu"
               >
                 {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -134,13 +130,13 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-2 p-4 rounded-2xl editorial-card space-y-2 shadow-2xl">
+          <div className="lg:hidden mt-2 p-4 rounded-3xl bg-[#191424] border border-[#3A2E50] space-y-2 shadow-2xl backdrop-blur-xl">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-xl text-sm font-medium theme-heading hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-300"
+                className="block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-[#F5EFFB] hover:bg-[#8E55F7]/20"
               >
                 {link.name}
               </a>
@@ -150,7 +146,7 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full mt-2 py-2.5 rounded-xl bg-purple-600 text-white font-semibold text-xs flex items-center justify-center space-x-1.5"
+              className="w-full mt-2 py-2.5 rounded-xl bg-gradient-to-r from-[#8E55F7] to-[#ED7BC9] text-white font-bold text-xs flex items-center justify-center space-x-1.5 shadow-md"
             >
               <span>View Resume</span>
               <ArrowUpRight size={14} />

@@ -1,181 +1,194 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, Flame, ExternalLink, Calendar, MapPin, Eye, X, Image as ImageIcon } from 'lucide-react';
-import { achievements, personalData } from '../data/portfolioData';
+import { Trophy, Flame, ExternalLink, Eye, X, Download } from 'lucide-react';
+import { achievements } from '../data/portfolioData';
 
 const Achievements = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const getImageUrl = (img) => (typeof img === 'string' ? img : img.url);
+  const getImageLabel = (img) => (typeof img === 'string' ? 'Showcase Image' : img.label || img.title || 'Showcase Image');
+  const getImageCaption = (img) => (typeof img === 'string' ? '' : img.caption || '');
 
   return (
     <section id="achievements" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 font-mono-tag text-xs font-semibold uppercase tracking-widest mb-3">
-            <Trophy size={14} />
-            <span>06 // EVENTS, HACKATHONS & CODING PROFILE</span>
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1F1B2C] border border-[#3A2E50] text-[#ED7BC9] font-sans text-xs font-semibold uppercase tracking-wider mb-3">
+            <Trophy size={14} className="text-[#8E55F7]" />
+            <span>06 // COMPETITIONS & CODING DISCIPLINE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight theme-heading">
-            Events & Hackathons
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F5EFFB] dark:text-[#F5EFFB] tracking-tight">
+            Hackathons & Achievements
           </h2>
-          <p className="theme-muted text-sm sm:text-base mt-2">
-            Project showcases, technical presentations, competitive hackathons, and daily Java coding consistency.
+          <p className="text-[#C3B8D4] text-sm sm:text-base mt-2 font-sans font-normal">
+            National hackathons, engineering showcases, and daily algorithmic problem-solving discipline.
           </p>
-          <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-emerald-500 mt-4 rounded-full" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#8E55F7] via-[#D562F2] to-[#ED7BC9] mt-3 rounded-full" />
         </div>
 
-        {/* 1. LEETCODE STREAK CARD */}
+        {/* 1. LEETCODE CODING STREAK CARD */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 editorial-card p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border-2 border-amber-500/40"
+          className="mb-12 warm-card p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg border-2 border-[#8E55F7]"
         >
           <div className="flex items-center space-x-5">
-            <div className="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0 shadow-inner">
-              <Flame size={36} className="animate-pulse" />
+            <div className="w-14 h-14 rounded-2xl bg-[#8E55F7]/20 border border-[#8E55F7] flex items-center justify-center text-[#ED7BC9] shrink-0 shadow-[0_0_20px_rgba(142,85,247,0.3)]">
+              <Flame size={32} className="animate-pulse" />
             </div>
             <div>
-              <span className="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-800 dark:text-amber-300 font-mono-tag text-xs font-bold uppercase tracking-wider mb-1 inline-block">
-                JAVA CODING CONSISTENCY
+              <span className="px-3 py-0.5 rounded-full bg-[#121018] border border-[#3A2E50] text-[#ED7BC9] font-sans text-xs font-bold uppercase tracking-wider mb-1 inline-block">
+                JAVA PROBLEM SOLVING
               </span>
-              <h3 className="text-2xl font-extrabold font-heading theme-heading">
+              <h3 className="text-2xl font-display font-bold text-[#F5EFFB]">
                 {achievements.leetcodeStreak.title}
               </h3>
-              <p className="text-xs sm:text-sm theme-muted mt-1 max-w-xl font-sans">
+              <p className="text-xs sm:text-sm text-[#C3B8D4] mt-1 font-sans font-normal">
                 {achievements.leetcodeStreak.desc}
               </p>
             </div>
           </div>
 
           <a
-            href={personalData.leetcode}
+            href={achievements.leetcodeStreak.profileUrl}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm transition-all shrink-0 shadow-md font-mono-tag flex items-center space-x-2 hover:scale-105"
+            className="px-6 py-3 rounded-full btn-gradient-primary font-sans font-bold text-xs sm:text-sm shrink-0 flex items-center space-x-1.5 shadow-md"
           >
-            <span>LeetCode Profile</span>
+            <span>Verify LeetCode Profile</span>
             <ExternalLink size={14} />
           </a>
         </motion.div>
 
-        {/* 2. HACKATHONS & EVENTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* 2. HACKATHONS & SHOWCASES GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {achievements.hackathons.map((h, idx) => (
             <motion.div
-              key={h.id || idx}
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className={`editorial-card p-6 sm:p-7 rounded-3xl space-y-4 shadow-lg group flex flex-col justify-between ${
-                h.images && h.images.length > 0 ? 'border-purple-500/40 dark:border-purple-500/30' : ''
-              }`}
+              className="warm-card p-6 sm:p-8 rounded-3xl space-y-5 shadow-sm group flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b theme-border pb-3">
-                  <span className="text-xs font-mono-tag font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wide">
+                <div className="flex items-center justify-between border-b border-[#3A2E50] pb-3">
+                  <span className="text-xs font-sans font-bold text-[#ED7BC9] uppercase tracking-wider">
                     {h.tag}
                   </span>
-                  <div className="flex items-center space-x-2">
-                    {h.date && (
-                      <span className="text-xs font-mono-tag text-purple-700 dark:text-purple-300 font-semibold flex items-center space-x-1 bg-purple-500/10 px-2 py-0.5 rounded-md border border-purple-500/20">
-                        <Calendar size={11} />
-                        <span>{h.date}</span>
-                      </span>
-                    )}
-                    <span className="text-xs font-mono-tag text-emerald-700 dark:text-emerald-400 font-semibold uppercase bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
-                      {h.role}
-                    </span>
-                  </div>
+                  <span className="text-xs font-mono text-[#8E82A3] font-bold">
+                    0{idx + 1}
+                  </span>
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-bold font-heading theme-heading group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
+                  <h4 className="text-xl font-display font-extrabold text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors">
                     {h.title}
                   </h4>
-                  <div className="text-xs font-semibold text-purple-700 dark:text-purple-300 mt-1 flex items-center space-x-1.5">
-                    <MapPin size={12} />
-                    <span>{h.organization}</span>
+                  <div className="text-xs font-sans font-bold text-[#C3B8D4] mt-1">
+                    {h.organization}
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm theme-body leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-[#C3B8D4] leading-relaxed font-sans font-normal">
                   {h.desc}
                 </p>
+              </div>
 
-                {/* Event Photo Showcase Gallery */}
-                {h.images && h.images.length > 0 && (
-                  <div className="space-y-2 pt-2">
-                    <div className="flex items-center justify-between text-xs font-mono-tag theme-muted">
-                      <span className="flex items-center space-x-1 font-semibold text-purple-600 dark:text-purple-300">
-                        <ImageIcon size={13} />
-                        <span>Event Photographs & Certificate</span>
-                      </span>
-                    </div>
-
-                    <div className={`grid gap-3 ${h.images.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-                      {h.images.map((imgUrl, imgIdx) => (
+              {/* Horizontal Image Thumbnails */}
+              {h.images && h.images.length > 0 && (
+                <div className="pt-4 border-t border-[#3A2E50] space-y-2">
+                  <div className="text-[11px] font-sans font-bold text-[#8E82A3] uppercase tracking-wider">
+                    EVENT EVIDENCE & CERTIFICATES ({h.images.length})
+                  </div>
+                  <div className="flex items-center gap-3 overflow-x-auto pb-1">
+                    {h.images.map((img, iIdx) => {
+                      const url = getImageUrl(img);
+                      const label = getImageLabel(img);
+                      return (
                         <div
-                          key={imgIdx}
-                          onClick={() => setSelectedImage({ url: imgUrl, title: `${h.title} — Item ${imgIdx + 1}`, caption: h.desc })}
-                          className="relative rounded-2xl overflow-hidden border-2 border-purple-500/25 h-32 cursor-pointer group/img shadow-md hover:border-purple-500/60 transition-all hover:scale-[1.02]"
+                          key={iIdx}
+                          onClick={() => setSelectedImage(img)}
+                          className="group/img relative rounded-xl overflow-hidden border border-[#3A2E50] hover:border-[#8E55F7] bg-[#121018] w-24 h-20 shrink-0 cursor-pointer shadow-xs transition-all"
                         >
                           <img
-                            src={imgUrl}
-                            alt={`${h.title} item ${imgIdx + 1}`}
+                            src={url}
+                            alt={label}
                             className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                           />
-                          <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                            <span className="p-2 rounded-xl bg-white/90 text-slate-900 shadow-lg">
-                              <Eye size={16} />
-                            </span>
+                          <div className="absolute inset-0 bg-[#121018]/50 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <Eye size={16} className="text-[#F5EFFB]" />
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      );
+                    })}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
 
-        {/* Full-Screen Image Lightbox Modal */}
+        {/* Preview Modal */}
         <AnimatePresence>
           {selectedImage && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-md">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#121018]/80 backdrop-blur-md">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="relative max-w-4xl max-h-[92vh] editorial-card p-4 sm:p-6 rounded-3xl overflow-hidden shadow-2xl flex flex-col items-center"
+                className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#191424] border border-[#3A2E50] p-6 shadow-2xl text-[#F5EFFB]"
               >
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full border border-slate-200 dark:border-slate-800 theme-heading hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors z-20"
-                  aria-label="Close photo"
+                  className="absolute top-5 right-5 p-2.5 rounded-full bg-[#121018] text-[#F5EFFB] border border-[#3A2E50] hover:border-[#ED7BC9] transition-colors"
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
 
-                <h3 className="text-base sm:text-lg font-bold font-heading theme-heading mb-3 self-start pr-10">
-                  {selectedImage.title}
-                </h3>
+                <div className="space-y-4">
+                  <div className="text-xs font-mono font-bold text-[#8E82A3]">
+                    SHOWCASE IMAGE PREVIEW
+                  </div>
+                  <h3 className="text-xl font-display font-bold text-[#F5EFFB]">
+                    {getImageLabel(selectedImage)}
+                  </h3>
 
-                <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 max-h-[70vh] bg-black/50">
-                  <img
-                    src={selectedImage.url}
-                    alt={selectedImage.title}
-                    className="w-full h-auto max-h-[70vh] object-contain"
-                  />
+                  <div className="rounded-2xl overflow-hidden border border-[#3A2E50] bg-black/20 flex items-center justify-center max-h-[60vh]">
+                    <img
+                      src={getImageUrl(selectedImage)}
+                      alt={getImageLabel(selectedImage)}
+                      className="max-h-[60vh] w-auto object-contain"
+                    />
+                  </div>
+
+                  {getImageCaption(selectedImage) && (
+                    <p className="text-xs sm:text-sm text-[#C3B8D4] font-sans leading-relaxed font-normal">
+                      {getImageCaption(selectedImage)}
+                    </p>
+                  )}
+
+                  <div className="pt-4 border-t border-[#3A2E50] flex justify-between items-center">
+                    <a
+                      href={getImageUrl(selectedImage)}
+                      download
+                      className="px-5 py-2.5 rounded-full btn-gradient-primary font-sans font-bold text-xs flex items-center space-x-1.5 shadow-sm"
+                    >
+                      <Download size={14} />
+                      <span>Download Image</span>
+                    </a>
+                    <button
+                      onClick={() => setSelectedImage(null)}
+                      className="px-4 py-2 rounded-full bg-[#121018] text-[#F5EFFB] border border-[#3A2E50] font-sans font-semibold text-xs"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
-
-                <p className="text-xs sm:text-sm theme-muted mt-3 text-center max-w-xl font-sans">
-                  {selectedImage.caption}
-                </p>
               </motion.div>
             </div>
           )}

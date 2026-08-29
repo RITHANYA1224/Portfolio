@@ -8,13 +8,14 @@ const iconMap = {
   MessageSquare: MessageSquare,
   Users: Users,
   Sparkles: Sparkles,
+  Brain: Brain
 };
 
 const BeyondCode = () => {
   return (
     <div className="mt-16 pt-12 border-t theme-border">
       <div className="text-left mb-8">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 font-mono-tag text-xs font-semibold uppercase tracking-widest mb-2">
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F3ECFB] dark:bg-[#C4ACF8]/15 border border-[#DACAF2] dark:border-[#C4ACF8]/30 text-[#6848A0] dark:text-[#C4ACF8] font-mono-tag text-xs font-bold uppercase tracking-widest mb-2">
           <Brain size={14} />
           <span>COMMUNICATION & COLLABORATION</span>
         </div>
@@ -36,13 +37,13 @@ const BeyondCode = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="editorial-card p-6 rounded-2xl space-y-3 relative group"
+              className="editorial-card p-6 rounded-3xl space-y-3 relative group shadow-sm hover:border-[#DACAF2] dark:hover:border-[#C4ACF8]/40 transition-all"
             >
               <div className="flex items-start justify-between">
-                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                <div className="p-3 rounded-2xl bg-[#F3ECFB] dark:bg-[#C4ACF8]/15 text-[#6848A0] dark:text-[#C4ACF8] border border-[#DACAF2] dark:border-[#C4ACF8]/30 group-hover:scale-110 transition-transform">
                   <IconComponent size={20} />
                 </div>
-                <span className="text-[10px] font-mono-tag uppercase px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 theme-muted">
+                <span className="text-[10px] font-mono-tag uppercase font-bold px-3 py-1 rounded-full bg-[#EAF4ED] dark:bg-[#9DD8B0]/15 text-[#325A41] dark:text-[#9DD8B0] border border-[#C4E2CC] dark:border-[#9DD8B0]/30">
                   Strength 0{idx + 1}
                 </span>
               </div>
@@ -51,7 +52,7 @@ const BeyondCode = () => {
                 <h4 className="text-lg font-bold font-heading theme-heading">
                   {item.title}
                 </h4>
-                <p className="text-xs font-semibold text-purple-600 dark:text-purple-400 mt-0.5">
+                <p className="text-xs font-bold text-[#6848A0] dark:text-[#C4ACF8] mt-0.5">
                   {item.subtitle}
                 </p>
               </div>

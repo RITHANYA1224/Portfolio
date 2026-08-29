@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, ArrowUpRight, FileText, ExternalLink } from 'lucide-react';
+import { Download, ArrowUpRight } from 'lucide-react';
+import { personalData } from '../data/portfolioData';
 
 const ResumeSection = ({ onOpenResume }) => {
   return (
@@ -11,47 +12,37 @@ const ResumeSection = ({ onOpenResume }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="editorial-card p-8 sm:p-14 rounded-3xl text-left relative overflow-hidden shadow-2xl border-2 border-purple-500/30"
+          className="warm-card p-8 sm:p-14 rounded-3xl text-left relative overflow-hidden shadow-lg border-2 border-[#8E55F7]"
         >
           <div className="max-w-2xl space-y-6 relative z-10">
-            <span className="px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 font-mono-tag text-xs font-semibold uppercase tracking-widest inline-block">
+            <span className="px-3.5 py-1 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7]/40 text-[#ED7BC9] font-sans text-xs font-bold uppercase tracking-wider inline-block">
               CURRICULUM VITAE
             </span>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-heading tracking-tight theme-heading">
-              Looking for my complete resume?
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-[#F5EFFB] tracking-tight">
+              Interested in my work?
             </h2>
 
-            <p className="theme-body text-base sm:text-lg leading-relaxed font-sans">
-              Access my verified qualifications, academic record (8.18 CGPA), full-stack project architecture, internship deliverables at Ytock, and certifications in PDF format.
+            <p className="text-[#C3B8D4] text-base sm:text-lg leading-relaxed font-sans font-normal">
+              Review my formal technical background, project case studies, academic record, and internship achievements in my official resume.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenResume}
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all font-mono-tag"
+                className="flex items-center space-x-2 px-7 py-3.5 rounded-full btn-gradient-primary font-sans font-bold text-sm shadow-sm"
               >
-                <FileText size={16} />
-                <span>VIEW RESUME</span>
+                <span>View Resume</span>
+                <ArrowUpRight size={16} />
               </button>
 
               <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl editorial-card theme-heading text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all font-mono-tag"
-              >
-                <ExternalLink size={16} className="text-purple-700 dark:text-purple-300" />
-                <span>OPEN IN TAB</span>
-              </a>
-
-              <a
-                href="/resume.pdf"
+                href={personalData.resumePath}
                 download="Rithanya_S_Resume.pdf"
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all font-mono-tag shadow-md"
+                className="flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#121018] text-[#F5EFFB] border border-[#563A80] hover:border-[#ED7BC9] text-sm font-semibold transition-all shadow-xs"
               >
-                <Download size={16} />
-                <span>DOWNLOAD PDF</span>
+                <Download size={16} className="text-[#ED7BC9]" />
+                <span>Download Resume</span>
               </a>
             </div>
           </div>
