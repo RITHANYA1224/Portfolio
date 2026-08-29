@@ -17,28 +17,8 @@ h1, h2, h3, .font-heading {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Futuristic Soft Barbie Lavender & Violet Midnight Theme */
-.light-theme, :root:not(.dark) {
-  --bg-primary: #FAF7FC;       /* Warm Off-White / Pale Lavender */
-  --bg-secondary: #F3ECF8;     /* Soft Lavender Secondary */
-  --bg-card: rgba(255, 255, 255, 0.95);
-  --bg-card-hover: #FAF7FC;
-  --text-primary: #1B1326;    /* Deep Charcoal Text */
-  --text-secondary: #4B3E5E;  /* Dark Muted Lavender */
-  --text-muted: #736388;
-  --border-subtle: #E3D8F5;   /* Subtle Lavender Border */
-  --border-hover: #8E55F7;
-  
-  --accent-purple: #8E55F7;   /* Radiant Violet */
-  --accent-purple-bg: rgba(142, 85, 247, 0.1);
-  --accent-pink: #ED7BC9;     /* Soft Barbie Pink */
-  --accent-pink-bg: rgba(237, 123, 201, 0.1);
-
-  --shadow-card: 0 4px 25px -4px rgba(142, 85, 247, 0.08);
-  --shadow-card-hover: 0 12px 35px -4px rgba(142, 85, 247, 0.18);
-}
-
-.dark-theme, .dark {
+/* Permanent Dark Mode - Lavender & Violet Midnight Theme */
+:root, .dark-theme, .dark {
   --bg-primary: #121018;       /* Deep Midnight Charcoal-Plum */
   --bg-secondary: #191424;     /* Dark Violet Container */
   --bg-card: rgba(31, 27, 44, 0.75);
@@ -61,7 +41,6 @@ h1, h2, h3, .font-heading {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -86,12 +65,6 @@ body {
 /* Gradient Text Emphasis */
 .text-gradient-purple-pink {
   background: linear-gradient(135deg, #FFFFFF 20%, #E4A0F7 60%, #ED7BC9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-:root:not(.dark) .text-gradient-purple-pink {
-  background: linear-gradient(135deg, #1B1326 20%, #7A3EE3 60%, #D952B0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

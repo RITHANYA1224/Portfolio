@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
-const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
+const Navbar = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -43,8 +43,8 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
         <div
           className={`mx-auto rounded-full transition-all duration-300 ${
             scrolled
-              ? 'bg-[#191424]/90 dark:bg-[#191424]/90 backdrop-blur-md border border-[#3A2E50] dark:border-[#3A2E50] shadow-lg py-2.5 px-6'
-              : 'bg-[#191424]/60 dark:bg-[#191424]/60 backdrop-blur-sm border border-[#3A2E50]/60 py-3 px-6'
+              ? 'bg-[#191424]/90 backdrop-blur-md border border-[#3A2E50] shadow-lg py-2.5 px-6'
+              : 'bg-[#191424]/60 backdrop-blur-sm border border-[#3A2E50]/60 py-3 px-6'
           }`}
         >
           <div className="flex items-center justify-between">
@@ -53,21 +53,21 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
               href="#home"
               className="flex items-center space-x-3 group"
             >
-              <div className="w-9 h-9 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7] flex items-center justify-center text-[#F5EFFB] dark:text-[#F5EFFB] font-display font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-full bg-[#8E55F7]/20 border border-[#8E55F7] flex items-center justify-center text-[#F5EFFB] font-display font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
                 R
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-extrabold text-base tracking-tight text-[#F5EFFB] dark:text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors">
+                <span className="font-display font-extrabold text-base tracking-tight text-[#F5EFFB] group-hover:text-[#ED7BC9] transition-colors">
                   {personalData.name}
                 </span>
-                <span className="text-[10px] font-sans text-[#C3B8D4] dark:text-[#C3B8D4] tracking-wide font-medium">
+                <span className="text-[10px] font-sans text-[#C3B8D4] tracking-wide font-medium">
                   B.Tech IT • SKCT
                 </span>
               </div>
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-1 bg-[#121018]/80 dark:bg-[#121018]/80 border border-[#3A2E50] rounded-full px-3 py-1.5 backdrop-blur-md">
+            <nav className="hidden lg:flex items-center space-x-1 bg-[#121018]/80 border border-[#3A2E50] rounded-full px-3 py-1.5 backdrop-blur-md">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
@@ -88,16 +88,6 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
 
             {/* Action Buttons */}
             <div className="hidden sm:flex items-center space-x-3">
-              {/* Theme Switcher Toggle */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-full text-[#F5EFFB] bg-[#121018] border border-[#3A2E50] hover:border-[#8E55F7] transition-colors"
-                aria-label="Toggle Theme"
-                title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-              >
-                {darkMode ? <Sun size={16} className="text-[#ED7BC9]" /> : <Moon size={16} className="text-[#8E55F7]" />}
-              </button>
-
               {/* Resume Button */}
               <button
                 onClick={onOpenResume}
@@ -110,13 +100,6 @@ const Navbar = ({ darkMode, setDarkMode, onOpenResume }) => {
 
             {/* Mobile Hamburger Toggle */}
             <div className="flex lg:hidden items-center space-x-2">
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg text-[#F5EFFB]"
-                aria-label="Toggle Theme"
-              >
-                {darkMode ? <Sun size={18} className="text-[#ED7BC9]" /> : <Moon size={18} className="text-[#8E55F7]" />}
-              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-lg text-[#F5EFFB]"
