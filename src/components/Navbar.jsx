@@ -48,13 +48,17 @@ const Navbar = ({ onOpenResume }) => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Editorial Brand Name */}
+            {/* Editorial Brand Avatar & Name */}
             <a
               href="#home"
               className="flex items-center space-x-3 group"
             >
-              <div className="w-9 h-9 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6] flex items-center justify-center text-[#F8FAFC] font-display font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
-                R
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-[#8B5CF6] group-hover:border-[#EC4899] shadow-sm group-hover:scale-105 transition-all shrink-0 bg-[#070A18]">
+                <img
+                  src={personalData.profileImage}
+                  alt={personalData.name}
+                  className="w-full h-full object-cover object-[center_18%]"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-extrabold text-base tracking-tight text-[#F8FAFC] group-hover:text-[#EC4899] transition-colors">
