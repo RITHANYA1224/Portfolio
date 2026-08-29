@@ -30,7 +30,22 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen relative font-sans selection:bg-[#8B5CF6] selection:text-white transition-colors duration-300">
+    <div className="min-h-screen relative font-sans selection:bg-[#8B5CF6] selection:text-white transition-colors duration-300 bg-warm-ambient bg-dot-pattern">
+      {/* Fixed Atmospheric Background Layers for ALL Pages & Sections */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-40">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-100,300 C400,100 800,600 1600,300" stroke="url(#appPurplePinkGrad)" strokeWidth="1.5" fill="none" />
+          <path d="M-100,800 C500,600 900,1100 1700,750" stroke="url(#appPurplePinkGrad)" strokeWidth="1" strokeDasharray="8,8" fill="none" />
+          <defs>
+            <linearGradient id="appPurplePinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8B5CF6" />
+              <stop offset="50%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#EC4899" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       {/* Interactive Sparkle Particle Cursor */}
       <ParticleCursor />
 
@@ -42,7 +57,7 @@ function App() {
       />
 
       {/* Main Content Sections */}
-      <main>
+      <main className="relative z-10">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <About />
         <Education />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download, MapPin, GraduationCap, Award, ExternalLink, ChevronDown } from 'lucide-react';
+import { ChevronsDown, Download, MapPin, GraduationCap, Award, ExternalLink } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalData } from '../data/portfolioData';
 
@@ -13,9 +13,9 @@ const Hero = ({ onOpenResume }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen pt-36 pb-24 flex flex-col justify-between bg-warm-ambient bg-dot-pattern overflow-hidden">
+    <section id="home" className="relative min-h-screen pt-36 pb-24 flex flex-col justify-between overflow-hidden">
       {/* Background Orbital Wave SVG Decorative Accent */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-25" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30" xmlns="http://www.w3.org/2000/svg">
         <path d="M-100,200 C300,50 800,450 1400,200" stroke="url(#purplePinkGrad)" strokeWidth="1.5" fill="none" />
         <path d="M-100,500 C400,300 700,700 1500,400" stroke="url(#purplePinkGrad)" strokeWidth="1" strokeDasharray="6,6" fill="none" />
         <defs>
@@ -81,7 +81,7 @@ const Hero = ({ onOpenResume }) => {
                   className="flex items-center space-x-2 px-7 py-3.5 rounded-full btn-gradient-primary font-sans font-bold text-sm"
                 >
                   <span>Explore My Work</span>
-                  <ArrowDown size={16} />
+                  <ChevronsDown size={16} />
                 </a>
 
                 <a
@@ -163,7 +163,7 @@ const Hero = ({ onOpenResume }) => {
         </div>
       </div>
 
-      {/* 7. GLOWING DOWNWARD ARROW SCROLL INDICATOR */}
+      {/* GLOWING DOUBLE-CHEVRON DOWNWARD ARROW SCROLL INDICATOR */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -171,11 +171,8 @@ const Hero = ({ onOpenResume }) => {
         className="flex flex-col items-center justify-center pt-8 cursor-pointer relative z-20 group"
         onClick={scrollToAbout}
       >
-        <span className="text-[11px] font-sans font-bold tracking-widest text-[#CBD5E1] dark:text-[#CBD5E1] uppercase mb-1.5 group-hover:text-[#EC4899] transition-colors">
-          SCROLL DOWN
-        </span>
-        <div className="w-10 h-10 rounded-full bg-[#101225]/80 border border-[#8B5CF6]/50 flex items-center justify-center text-[#EC4899] shadow-[0_0_15px_rgba(236,72,153,0.4)] group-hover:scale-110 transition-all">
-          <ChevronDown size={20} className="glowing-chevron animate-bounce" />
+        <div className="w-12 h-12 rounded-full bg-[#101225]/90 border-2 border-[#A855F7] flex items-center justify-center text-[#EC4899] shadow-[0_0_25px_rgba(236,72,153,0.6)] group-hover:scale-110 group-hover:border-[#EC4899] transition-all">
+          <ChevronsDown size={24} className="glowing-chevron animate-bounce text-[#EC4899]" />
         </div>
       </motion.div>
     </section>
