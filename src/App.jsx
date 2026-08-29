@@ -15,19 +15,13 @@ import ResumeModal from './components/ResumeModal';
 import ParticleCursor from './components/ParticleCursor';
 
 function App() {
-  // Default to Dark Mode (Deep Navy Base)
-  const [darkMode, setDarkMode] = useState(true);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      document.body.className = 'dark-theme dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.className = 'light-theme';
-    }
-  }, [darkMode]);
+    // Always enforce dark mode permanently
+    document.documentElement.classList.add('dark');
+    document.body.className = 'dark-theme dark';
+  }, []);
 
   return (
     <div className="min-h-screen relative font-sans selection:bg-[#8B5CF6] selection:text-white transition-colors duration-300 bg-warm-ambient bg-dot-pattern">
@@ -49,10 +43,8 @@ function App() {
       {/* Interactive Sparkle Particle Cursor */}
       <ParticleCursor />
 
-      {/* Navigation Header with Dual Theme Toggle */}
+      {/* Navigation Header */}
       <Navbar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         onOpenResume={() => setIsResumeOpen(true)}
       />
 

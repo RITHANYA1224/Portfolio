@@ -39,17 +39,17 @@ const Hero = ({ onOpenResume }) => {
           >
             {/* Metadata Pill Strip */}
             <div className="flex flex-wrap items-center gap-3">
-              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] dark:text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
                 <MapPin size={13} className="text-[#EC4899]" />
                 <span>{personalData.location}</span>
               </span>
 
-              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] dark:text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
                 <GraduationCap size={13} className="text-[#8B5CF6]" />
                 <span>B.Tech IT • {personalData.academicPeriod}</span>
               </span>
 
-              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] dark:text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
+              <span className="px-4 py-1.5 rounded-full bg-[#101225]/80 border border-[#1F2442] text-[#F8FAFC] text-xs font-medium flex items-center space-x-2 backdrop-blur-md shadow-sm">
                 <Award size={13} className="text-[#EC4899]" />
                 <span>CGPA {personalData.cgpa}</span>
               </span>
@@ -60,7 +60,7 @@ const Hero = ({ onOpenResume }) => {
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.08] text-gradient-purple-pink">
                 {personalData.name}
               </h1>
-              <p className="text-xl sm:text-2xl font-display italic text-[#CBD5E1] dark:text-[#CBD5E1]">
+              <p className="text-xl sm:text-2xl font-display italic text-[#CBD5E1]">
                 B.Tech Information Technology Student
               </p>
               <div className="text-xs font-sans font-bold uppercase tracking-widest text-[#EC4899]">
@@ -69,7 +69,7 @@ const Hero = ({ onOpenResume }) => {
             </div>
 
             {/* Editorial Statement */}
-            <p className="text-[#F8FAFC] dark:text-[#F8FAFC] text-base sm:text-lg leading-relaxed font-sans max-w-xl border-l-3 border-[#8B5CF6] pl-4 py-1 font-normal opacity-90">
+            <p className="text-[#F8FAFC] text-base sm:text-lg leading-relaxed font-sans max-w-xl border-l-3 border-[#8B5CF6] pl-4 py-1 font-normal opacity-90">
               "{personalData.tagline}"
             </p>
 
@@ -163,7 +163,7 @@ const Hero = ({ onOpenResume }) => {
         </div>
       </div>
 
-      {/* GLOWING DOUBLE-CHEVRON DOWNWARD ARROW SCROLL INDICATOR */}
+      {/* GLOWING DOUBLE-CHEVRON DOWNWARD ARROW ONLY (NO CIRCLE) */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -171,9 +171,10 @@ const Hero = ({ onOpenResume }) => {
         className="flex flex-col items-center justify-center pt-8 cursor-pointer relative z-20 group"
         onClick={scrollToAbout}
       >
-        <div className="w-12 h-12 rounded-full bg-[#101225]/90 border-2 border-[#A855F7] flex items-center justify-center text-[#EC4899] shadow-[0_0_25px_rgba(236,72,153,0.6)] group-hover:scale-110 group-hover:border-[#EC4899] transition-all">
-          <ChevronsDown size={24} className="glowing-chevron animate-bounce text-[#EC4899]" />
-        </div>
+        <ChevronsDown
+          size={36}
+          className="glowing-chevron animate-bounce text-[#EC4899] drop-shadow-[0_0_15px_rgba(236,72,153,0.95)] group-hover:scale-125 transition-transform"
+        />
       </motion.div>
     </section>
   );

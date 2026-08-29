@@ -19,7 +19,7 @@ const Experience = () => {
             <Briefcase size={14} className="text-[#8B5CF6]" />
             <span>04 // INDUSTRY EXPERIENCE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC] dark:text-[#F8FAFC] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC] tracking-tight">
             Internship Timeline & Verification
           </h2>
           <p className="text-[#CBD5E1] text-sm sm:text-base mt-2 font-sans font-normal">
@@ -28,8 +28,8 @@ const Experience = () => {
           <div className="w-12 h-1 bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#EC4899] mt-3 rounded-full" />
         </div>
 
-        {/* Experience Cards */}
-        <div className="max-w-5xl">
+        {/* Experience Cards - Centered with mx-auto */}
+        <div className="max-w-5xl mx-auto space-y-8">
           {experience.map((exp, idx) => (
             <motion.div
               key={idx}
