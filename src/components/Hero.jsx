@@ -121,7 +121,7 @@ const Hero = ({ onOpenResume }) => {
                   rel="noreferrer"
                   className="px-4 py-2 rounded-full bg-[#101225] text-[#F8FAFC] border border-[#1F2442] hover:border-[#8B5CF6] text-xs font-semibold flex items-center space-x-1.5 transition-all"
                 >
-                  <span>LeetCode (175+ Days)</span>
+                  <span>LeetCode (185+ Days)</span>
                   <ExternalLink size={12} className="text-[#EC4899]" />
                 </a>
               </div>
